@@ -1,0 +1,181 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 124px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    padding: 3%;
+    margin-right: 3.5%;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.box p{
+    border-top: 2px solid rgb(170, 170, 170);
+    color: rgb(170, 170, 170);
+}
+
+.edit_delete_list{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.box:hover .edit_delete_list{
+    opacity: 1;
+}
+
+.edit_delete_list button{
+    flex-basis: 40%;
+    border-radius: 2px;
+    border: 1px transparent solid;
+    color: white;
+}
+
+.edit_name{
+    background-color: rgb(83, 83, 255);
+}
+
+.delete_name{
+    background-color: rgb(249, 98, 98);
+}
+
+.edit_name:hover{
+    background-color: rgb(44, 44, 255);
+}
+
+.delete_name:hover{
+    background-color: rgb(241, 0, 0);
+}
+
+.arrow {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: 5px solid transparent;
+    border-right-color: #333;
+    border-top-color: #333;
+    border-radius: 3px;
+    rotate: (45);
+    transition: all 0.3s ease;
+}
+
+.box:hover .arrow {
+    display: block;
+}
+
+.add_box {
+    overflow: hidden;
+    flex-direction: row !important;
+}
+
+.plus-button {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #333;
+    padding: 0;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 1s;
+}
+
+.text-field {
+    width: 20px;
+    border-radius: 20px;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid gray;
+    background-color: #fff;
+    transition: width 1s;
+}
+
+
+/* Modal overlay */
+.modal {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal_1{
+    display: none;
+}
+.modal_1 input{
+    height: 35px;
+}
+
+.modal_2 {
+    display: none;
+}
+/* Pop-up div */
+.popup {
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+   
+}
+
+.popup_1{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Button styles */
+.modal button, .modal .cancel-btn-delete, .modal .cancel-btn-edit {
+    padding: 10px 20px;
+    border-radius: 5px;
+    
+    border: #333 solid 1px;
+    cursor: pointer;
+    margin: 0px;
+}
+
+.confirm-btn-edit  {
+    background-color: green;
+    color: white;
+}
+
+.confirm-btn-delete, .cancel-btn-edit:hover {
+    background-color: red;
+    color: white;
+}
+
+.cancel-btn-edit{
+    background-color: white;
+}
+
+.cancel-btn-delete{
+    color: #333;
+    background-color: white;
+}

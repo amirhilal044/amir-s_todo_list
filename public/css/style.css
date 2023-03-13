@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F4F4F4;
+    z-index: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container_list {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+.add-item {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-item input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+}
+
+#new-item{
+        margin-bottom: 5px;
+}
+
+.contain-add-item{
+    display: flex;
+    justify-content: space-evenly;
+    height: fit-content;
+}
+
+.contain-add-item button {
+    padding: 5px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.contain-add-item button:hover {
+    background-color: #050303;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+li:hover {
+    transform: translateX(10px);
+}
+
+li span {
+    margin-right: 20px;
+}
+
+li button {
+    background-color: #6a5353;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+li button:hover {
+    background-color: #cc0000;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+footer {
+    position: fixed;
+    bottom: 5%;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    
+}
+
+#redirect_to_home_btn{
+    text-decoration: none;
+    text-align: center;
+    background-color: white;
+    color: black;
+    border: 1px black solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transition: all ease .5s;
+}
+#redirect_to_home_btn:hover {
+    background-color: #939393;
+}

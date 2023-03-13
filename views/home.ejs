@@ -1,0 +1,62 @@
+<%- include("header") %>
+
+    <h1>My To-Do Lists</h1>
+    <h1>
+        <%= _date %>
+    </h1>
+    <div class="container">
+        <% _lists.forEach(function(list_index){ %>
+            <div class="box" onmouseover="mOver()" onmouseout="mOut()">
+                <div  style="text-align: center;" onclick="redirectToNewPage('<%= list_index.title %>')">
+                    <div class="arrow"></div>
+                    <h3 style="margin:0 ;font-size:30px">
+                        <%= list_index.title %>
+                    </h3>
+                    <p>
+                        <%= list_index.date_created %>
+                    </p>
+                </div>
+                <div class="edit_delete_list">
+                    <button type="submit" class="edit_name">edit name</button>
+                    <button type="submit" class="delete_name">delete</button>
+                </div>
+            </div>
+            <form action="/edit_delete_list" method="post">
+                <div class="modal modal_1">
+                    <div class="popup popup_1">
+                        <p>Enter new Name:</p>
+                        <input type="text" placeholder="Enter new Name for the list"
+                            style="margin: 10px 1px; border:1px solid gray; border-radius:2px" name="edited_name"
+                            id="edited_name">
+                        <input type="text" style="display: none;" value="<%= list_index.title %>" name="old_name">
+                        <div style="display: flex;  justify-content: space-between;">
+                            <button class="confirm-btn-edit" type="submit">Confirm</button>
+                            <p style="font-size: small;" class="cancel-btn-edit">Cancel</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal modal_2">
+                    <div class="popup popup_2">
+                        <p>Are you sure you want to delete?</p>
+                        <div style="display: flex;  justify-content: space-between;">
+                            <button class="confirm-btn-delete" name="delete_list"
+                                value="<%= list_index.title %>">Delete</button>
+                            <p style="font-size: small;" class="cancel-btn-delete">Cancel</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <% }) %>
+
+
+                <form class="add_box box" onmouseover="mover_content()" onmouseleave="mover_clear()" action="/add_list"
+                    method="post">
+                    <button class="plus-button" type="submit">+</button>
+                    <input id="add_item_text" placeholder="New List" name="list_name" required="true" class="text-field"
+                        type="text">
+                </form>
+
+    </div>
+
+
+    <%- include("footer") %>

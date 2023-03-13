@@ -1,0 +1,37 @@
+<%- include("header") %>
+
+    <h1>Fancy To-Do List</h1>
+    <h1>
+        <%= _date %>
+    </h1>
+    <div class="container_list">
+        <form action="/add_item/<%= _list._id %>" method="post">
+            <div class="contain-add-item">
+                <div class="add-item">
+                    <input type="text" required="true" name="new_i" id="new-item" placeholder="Add a new task">
+                    <input type="text" required="true" name="new_d" id="new-descition" placeholder="Description">
+                </div>
+                <button type="submit">Add</button>
+                <a id="redirect_to_home_btn" href="/home" type="submit">Home</a>
+            </div>
+
+        </form>
+
+        <ul id="item-list">
+            <% _list.items_lists.forEach(function(item){%>
+                <li class="item">
+                    <input type="checkbox" name="task" id="task<%= item.id %>" value="<%= item.title %>">
+                    <p>
+                        <%= item.title %>
+                    </p>
+                    <form action="/delete_item/<%= _list._id %>/<%= item._id %>" method="post">
+                        <button class="delete-btn" value="<%= item.title %>" name="task_title" type="submit">delete</button>
+                    </form>
+                </li>
+                <% }) %>
+        </ul>
+
+    </div>
+
+
+    <%- include("footer") %>
