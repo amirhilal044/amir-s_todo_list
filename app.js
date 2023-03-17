@@ -25,40 +25,8 @@ const list = new mongoose.Schema({
     items_lists: []
 })
 
-// const todo_list = new mongoose.Schema({
-//     title: String,
-//     description: String
-// })
-
 //declare a model(rows inside a table)
 const list_item = mongoose.model("list_item", list)
-// const todo_item = mongoose.model("todo_item", todo_list);
-
-
-// // ----------DEFAULTS----------------///
-// // create items(add rows into the model)
-// const t_list_item1 = new todo_item({
-//     //_id: 1,
-//     title: "Do assignment",
-//     description: "Computer graphics assignment and the system security assignment"
-// });
-
-// const t_list_item2 = new todo_item({
-//     //_id: 2,
-//     title: "Watch a recording",
-//     description: "DS approach recording and the system security files"
-// });
-
-// const t_list_item3 = new todo_item({
-//     //_id: 3,
-//     title: "Do a project",
-//     description: "Do a project using express and mongoose"
-// });
-
-// //add the prev items to an array
-// const default_todo_array =[t_list_item1,t_list_item2,t_list_item3]
-
-//----------------------------
 
 
 app.get('/home', (req, res) => {
@@ -73,7 +41,6 @@ app.get('/home', (req, res) => {
         })
 });
 
-//fix this
 app.get("/home/:param", (req, res) => {
 
     const dateString = date.getDate();
@@ -181,41 +148,6 @@ app.post('/add_item/:id', (req, res) => {
         });
 });
 
-
-// app.post('/add_item', (req, res) => {
-//     let new_item = req.body.new_i;
-//     let new_description = req.body.new_d;
-
-//     const new_todo_item = new todo_item({
-//         title: new_item,
-//         description: new_description
-//     })
-//     //console.log(new_todo_item);
-//     new_list_item.save()
-//         .then(function (todo) {
-//             //console.log(todo);
-//             res.redirect("/home/");
-//         })
-//         .catch(function (error) {
-//             console.log(error);
-//             res.status(500).send("Error saving todo item.");
-//         });
-// });
-
-// app.post("/delete_task", (req, res) => {
-//     let index = req.body.task_title;
-//     todo_item.deleteOne({ title: index })
-//         .then(function (result) {
-//             console.log(result);
-//             res.redirect("/");
-//         })
-//         .catch(function (error) {
-//             console.log(error);
-//             res.status(500).send("Error deleting todo item.");
-//         });
-
-//     //todo_list.splice(index, 1);
-// })
 
 app.post('/delete_item/:listId/:itemId', (req, res) => {
     let listId = req.params.listId;
